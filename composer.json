@@ -1,54 +1,52 @@
 {
-  "name": "enesyurtlu/TheMan",
-  "description": "A Theme Manager for Laravel 6.x",
-  "license": "MIT",
-  "keywords": [
-    "theman"
-  ],
-  "type": "library",
-  "authors": [
-    {
-      "name": "Enes Yurtlu",
-      "email": "enesyurtlu.dh@gmail.com"
-    }
-  ],
-  "require": {
-    "php": ">=7.2",
-    "illuminate/support": "^6.0"
-  },
-  "require-dev": {
-    "orchestra/testbench": "^4.0",
-    "phpunit/phpunit": "^8.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "enesyurtlu\\TheMan\\": "src"
+    "name": "enesyurtlu/theman",
+    "description": "A Theme Manager for Laravel 6.x",
+    "license": "MIT",
+    "keywords": [
+        "theman"
+    ],
+    "type": "library",
+    "authors": [{
+        "name": "Enes Yurtlu",
+        "email": "enesyurtlu.dh@gmail.com"
+    }],
+    "require": {
+        "php": ">=7.2",
+        "illuminate/support": "^6.0"
     },
-    "files": [
-      "src/helpers.php"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "enesyurtlu\\TheMan\\Tests\\": "tests"
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
     },
-    "files": [
-      "src/helpers.php"
-    ]
-  },
-  "scripts": {
-    "phpunit": "phpunit"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "enesyurtlu\\TheMan\\TheManServiceProvider"
-      ]
+    "autoload": {
+        "psr-4": {
+            "enesyurtlu\\TheMan\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "enesyurtlu\\TheMan\\Tests\\": "tests"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "scripts": {
+        "phpunit": "phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "enesyurtlu\\TheMan\\TheManServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
-  },
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true,
-    "optimize-autoloader": true
-  }
 }
