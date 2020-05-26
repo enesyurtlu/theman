@@ -4,7 +4,7 @@ namespace enesyurtlu\theman;
 
 use Illuminate\View\FileViewFinder as IlluminateFileViewFinder;
 
-class FileViewFinder extends IlluminateFileViewFinder
+class ThemeFileViewFinder extends IlluminateFileViewFinder
 {
     protected $extensions = ['theman.php', 'blade.php', 'php', 'css', 'html'];
     /**
