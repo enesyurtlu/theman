@@ -3,7 +3,7 @@
 namespace enesyurtlu\theman;
 
 use Illuminate\Support\Facades\Route;
-use enesyurtlu\theman;
+use enesyurtlu\theman\FileViewFinder;
 use Illuminate\Support\ServiceProvider;
 
 class TheManServiceProvider extends ServiceProvider
@@ -105,7 +105,6 @@ class TheManServiceProvider extends ServiceProvider
     {
         $this->app->singleton('view.finder', function ($app) {
             $paths = $app['config']['view.paths'];
-
             return new FileViewFinder($app['files'], $paths);
         });
 
