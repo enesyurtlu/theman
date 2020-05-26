@@ -3,7 +3,6 @@
 namespace enesyurtlu\theman;
 
 use Illuminate\Support\Facades\Route;
-use enesyurtlu\theman\FileViewFinder;
 use Illuminate\Support\ServiceProvider;
 
 class TheManServiceProvider extends ServiceProvider
