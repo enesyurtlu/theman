@@ -1,6 +1,6 @@
 <?php
 
-namespace enesyurtlu\TheMan\Matchers;
+namespace enesyurtlu\theman\Matchers;
 
 class Domain implements MatcherInterface
 {

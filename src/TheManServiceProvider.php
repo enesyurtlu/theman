@@ -1,6 +1,6 @@
 <?php
 
-namespace enesyurtlu\TheMan;
+namespace enesyurtlu\theman;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;

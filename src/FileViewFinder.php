@@ -1,6 +1,6 @@
 <?php
 
-namespace enesyurtlu\TheMan;
+namespace enesyurtlu\theman;
 
 use Illuminate\View\FileViewFinder as IlluminateFileViewFinder;
 
