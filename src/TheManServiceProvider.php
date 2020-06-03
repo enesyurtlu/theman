@@ -87,7 +87,7 @@ class TheManServiceProvider extends ServiceProvider
         );
 
         $this->app->bind('TheMan', function () {
-            return new TheMan();
+            return new enesyurtlu\TheMan();
         });
 
         $this->registerViewFinder();
