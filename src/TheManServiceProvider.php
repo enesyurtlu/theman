@@ -104,7 +104,7 @@ class TheManServiceProvider extends ServiceProvider
     {
         $this->app->singleton('view.finder', function ($app) {
             $paths = $app['config']['view.paths'];
-            return new enesyurtlu\theman\ThemeFileViewFinder($app['files'], $paths);
+            return new enesyurtlu\TheMan\ThemeFileViewFinder($app['files'], $paths);
         });
 
         // Apply this finder to the already-registered view factory
