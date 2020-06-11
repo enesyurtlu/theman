@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "enesyurtlu\\TheMan\\": "src"
+            "enesyurtlu\\theman\\": "src"
         },
         "files": [
             "src/helpers.php"
@@ -28,7 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "enesyurtlu\\TheMan\\Tests\\": "tests"
+            "enesyurtlu\\theman\\Tests\\": "tests"
         },
         "files": [
             "src/helpers.php"
@@ -40,7 +40,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "enesyurtlu\\TheMan\\TheManServiceProvider"
+                "enesyurtlu\\theman\\TheManServiceProvider"
             ]
         }
     },
