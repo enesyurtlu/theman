@@ -42,7 +42,19 @@ class TheMan
      */
     protected function findMatch($request)
     {
-        foreach (app('config')->get('theman')["theman"] as $match) {
+        if(app('config')->get('theman') !== null) {
+            $config = app('config')->get('theman');
+        } else {
+            $config = [
+                "theman" => [
+                    [
+                        'theme' => null
+                    ],
+                ]
+            ];
+        }
+
+        foreach ($config["theman"] as $match) {
             if ($this->testMatch($request, $match)) {
                 break;
             }
