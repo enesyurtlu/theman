@@ -1,9 +1,8 @@
 <?php
-
 return [
-
-    [
-        'theme' => "default"
+    "theman" => [
+        [
+            'theme' => null
+        ],
     ]
-
 ];

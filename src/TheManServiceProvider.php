@@ -7,15 +7,14 @@ use Illuminate\Support\ServiceProvider;
 
 class TheManServiceProvider extends ServiceProvider
 {
-    const CONFIG_PATH = __DIR__ . '/../config/theman.php';
 
     public function boot()
     {
         $this->publishes([
-            self::CONFIG_PATH => config_path('theman.php'),
-        ], 'config');
+            __DIR__.'/../config/theman.php' => config_path('theman.php'),
+        ]);
 
-        $this->app['TheMan']->setTheme($this->app['request']);
+        $this->app['theman']->setTheme($this->app['request']);
 
         $this->mapWebRoutes();
 
@@ -32,8 +31,7 @@ class TheManServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::group([
-            'middleware' => 'web',
-            'namespace' => 'modules\core\controllers',
+            'middleware' => 'web'
         ], function ($router) {
             $this->loadRouteFile('web');
         });
@@ -46,7 +44,7 @@ class TheManServiceProvider extends ServiceProvider
      */
     protected function loadRouteFile($routeFile)
     {
-        $routeFile = base_path('themes/' . $this->app['TheMan']->getTheme() . '/routes/' . $routeFile . '.php');
+        $routeFile = base_path('themes/' . app('theme') . '/routes/' . $routeFile . '.php');
         if (file_exists($routeFile)) {
             require $routeFile;
         }
@@ -64,7 +62,6 @@ class TheManServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => ['api', 'auth:api'],
-            'namespace' => 'modules\core\controllers',
             'prefix' => 'api',
         ], function ($router) {
             $this->loadRouteFile('api');
@@ -72,7 +69,6 @@ class TheManServiceProvider extends ServiceProvider
 
         Route::group([
             'middleware' => ['api'],
-            'namespace' => 'modules\core\controllers',
             'prefix' => 'api',
         ], function ($router) {
             $this->loadRouteFile('api-no-auth');
@@ -81,15 +77,6 @@ class TheManServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(
-            self::CONFIG_PATH,
-            'theman'
-        );
-
-        $this->app->bind('TheMan', function () {
-            return new TheMan();
-        });
-
         $this->registerViewFinder();
 
         $this->registerThemes();
@@ -118,7 +105,7 @@ class TheManServiceProvider extends ServiceProvider
      */
     protected function registerThemes()
     {
-        $this->app->singleton('TheMan', function () {
+        $this->app->singleton('theman', function () {
             return new TheMan();
         });
     }

@@ -3,6 +3,8 @@
 namespace enesyurtlu\theman;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 
 class TheMan
 {
@@ -40,7 +42,7 @@ class TheMan
      */
     protected function findMatch($request)
     {
-        foreach (app('config')->get('theman') as $match) {
+        foreach (app('config')->get('theman')["theman"] as $match) {
             if ($this->testMatch($request, $match)) {
                 break;
             }
@@ -63,9 +65,12 @@ class TheMan
                 }
             }
         }
-
         // nothing to match or all matches succeeded
-        $this->theme = $match['theme'];
+        $this->theme = $match["theme"];
+        App::singleton('theme', function () use ($request) {
+            return $this->theme;
+        });
+
         return true;
     }
 
@@ -89,7 +94,7 @@ class TheMan
     {
         $rule = explode(':', $rule);
         $params = isset($rule[1]) ? $rule[1] : null;
-        $class = '\\enesyurtlu\\theman\\Matchers\\' . studly_case($rule[0]);
+        $class = '\\enesyurtlu\\theman\\Matchers\\' . Str::studly($rule[0]);;
 
         return (new $class)->handle($request, $params);
     }

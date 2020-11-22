@@ -22,7 +22,7 @@ if (!function_exists('theme_assets')) {
      */
     function theme_assets($path, $secure = null)
     {
-        $theme = app('TheMan')->getTheme();
+        $theme = app('theman')->getTheme();
 
         if ($theme && file_exists(base_path("themes/$theme/assets/$path"))) {
             return app('url')->asset("themes/$theme/assets/$path", $secure);
